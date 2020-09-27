@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "bible-passage-reference-parser": "^2.0.1"
+  }
+}
