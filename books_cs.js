@@ -1,4 +1,4 @@
-const books_cs = {
+module.exports = {
     "1Chr": "1 Pa",
     "1Cor": "1 Kor",
     "1John": "1 J",
@@ -74,9 +74,4 @@ const books_cs = {
     "Wis": "Mdr",
     "Zech": "Za",
     "Zeph": "Sf"
-}
-
-module.exports = {
-    books_cs: books_cs,
-    getCzechBookName: book => books_cs[book]
 }

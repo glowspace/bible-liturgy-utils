@@ -1,5 +1,6 @@
+const books_cs = require("./books_cs.js");
+
 var bcv_parser = require("bible-passage-reference-parser/js/cs_bcv_parser").bcv_parser;
-BooksCs = require('./books_cs.js');
 
 // helper functions for an entity object (see tests/entities.js for reference)
 const cv_cmp = (cv1, cv2) => {
@@ -67,15 +68,15 @@ class BibleReference
     toCzechStrings() {
         const entities = this.getEntities();
 
-        const czechBookName = e => BooksCs.getCzechBookName(e.start.b);
+        const czechBookName = e => books_cs[e.start.b];
         const verseRange = e => {
             if (cv_cmp(e.start, e.end) === 0 ) {
-                return e.start.c + ', ' + e.start.v;
+                return e.start.c + ', ' + e.start.v; // Lk 2, 3
             }
             if (e.start.c == e.end.c) {
-                return e.start.c + ', ' + e.start.v + '-' + e.end.v;
+                return e.start.c + ', ' + e.start.v + '-' + e.end.v; // Lk 2, 3-5
             }
-            return e.start.c + ',' + e.start.v + ' - ' + e.end.c + ',' + e.end.v;
+            return e.start.c + ',' + e.start.v + ' - ' + e.end.c + ',' + e.end.v; // Lk 2,3 - 3,10
         }
 
         return entities.map(e => czechBookName(e) + ' ' + verseRange(e));
