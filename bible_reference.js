@@ -1,7 +1,7 @@
 var bcv_parser = require("bible-passage-reference-parser/js/cs_bcv_parser").bcv_parser;
 BooksCs = require('./books_cs.js');
 
-// helper functions for an entity object (see entities.js for reference)
+// helper functions for an entity object (see tests/entities.js for reference)
 const cv_cmp = (cv1, cv2) => {
     if (cv1.c > cv2.c) return 1;
     if (cv1.c < cv2.c) return -1;

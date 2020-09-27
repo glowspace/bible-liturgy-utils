@@ -1,4 +1,4 @@
-const BibleReference = require('./bible_reference');
+const BibleReference = require('../bible_reference');
 
 const ref = BibleReference.fromEuropean(`Jan 3, 12-30`);
 

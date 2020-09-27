@@ -78,7 +78,5 @@ const books_cs = {
 
 module.exports = {
     books_cs: books_cs,
-    getCzechBookName: function(book) {
-        return books_cs[book];
-    }
+    getCzechBookName: book => books_cs[book]
 }
