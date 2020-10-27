@@ -39,10 +39,24 @@ class BibleReference
 
         bcv.set_options({
             punctuation_strategy: 'eu',
-            osis_compaction_strategy: 'bcv'
+            osis_compaction_strategy: 'bcv',
+            versification_system: 'nab'
         });
 
-        return new BibleReference(bcv.parse(reference_str));
+        const prepareReference = br => 
+            br.replace('Žl', 'Ž')
+            .replace('žl', 'Ž')
+            .replace('Zach', 'Za')
+            .replace('Sof', 'Sf')
+            .replace('Žid', 'Žd')
+            .replace('Nm', 'Num')
+            .replace('Flp', 'Fp')
+            .replace('Kron', 'Paralipomenon')
+            .replace('Is', 'Iz') // probably a typo, but seen in the dataset
+            .replace(/\(\d+\)/g, '') // remove alternative psalm numberings, e.g. Ž 98(97)
+            .replace('+', '.').replace(/(\d+)[abcde]+/g, '$1'); // remove sub-verse letters
+
+        return new BibleReference(bcv.parse(prepareReference(reference_str)));
     }
 
     instersectsWith(bible_reference) {
