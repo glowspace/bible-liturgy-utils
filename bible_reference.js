@@ -30,6 +30,10 @@ class BibleReference
     static fromOsis(osis_str) {
         let bcv = new bcv_parser;
         bcv.include_apocrypha(true);
+        bcv.set_options({
+            versification_system: 'nab'
+        });
+
         return new BibleReference(bcv.parse(osis_str));
     }
 
@@ -51,7 +55,7 @@ class BibleReference
             .replace('Žid', 'Žd')
             .replace('Nm', 'Num')
             .replace('Flp', 'Fp')
-            .replace('Kron', 'Paralipomenon')
+            .replace('Kron', 'Pa')
             .replace('Is', 'Iz') // probably a typo, but seen in the dataset
             .replace(/\(\d+\)/g, '') // remove alternative psalm numberings, e.g. Ž 98(97)
             .replace('+', '.').replace(/(\d+)[abcde]+/g, '$1'); // remove sub-verse letters
