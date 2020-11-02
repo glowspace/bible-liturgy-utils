@@ -15,7 +15,7 @@ const cv_cmp = (cv1, cv2) => {
 const isBetween = (target, start, end) => cv_cmp(target, start) >= 0 && cv_cmp(target, end) <= 0;
 const endsWithinSameBook = e => e.start.b === e.end.b;
 const matchesBook = (e1, e2) => e1.start.b === e2.start.b;
-const matchesRange = (e1, e2) => isBetween(e2.start, e1.start, e1.end) || isBetween(e2.end, e1.start, e1.end);
+const matchesRange = (e1, e2) => isBetween(e2.start, e1.start, e1.end) || isBetween(e2.end, e1.start, e1.end) || isBetween(e1.start, e2.start, e2.end);
 
 class BibleReference
 {
@@ -24,6 +24,9 @@ class BibleReference
     }
 
     getEntities() {
+        if (this.bcv_obj.parsed_entities().length == 0) 
+            return [];
+
         return this.bcv_obj.parsed_entities()[0].entities;
     }
 
@@ -63,7 +66,7 @@ class BibleReference
         return new BibleReference(bcv.parse(prepareReference(reference_str)));
     }
 
-    instersectsWith(bible_reference) {
+    intersectsWith(bible_reference) {
         const entities_1 = this.getEntities();
         const entities_2 = bible_reference.getEntities();
         
