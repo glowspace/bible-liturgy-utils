@@ -51,15 +51,16 @@ class BibleReference
         });
 
         const prepareReference = br => 
-            br.replace('Žl', 'Ž')
-            .replace('žl', 'Ž')
-            .replace('Zach', 'Za')
-            .replace('Sof', 'Sf')
-            .replace('Žid', 'Žd')
-            .replace('Nm', 'Num')
-            .replace('Flp', 'Fp')
-            .replace('Kron', 'Pa')
-            .replace('Is', 'Iz') // probably a typo, but seen in the dataset
+            br.replace('Žl ', 'Ž ')
+            .replace('žl ', 'Ž ')
+            .replace('Zach ', 'Za ')
+            .replace('Sof ', 'Sf ')
+            .replace('Žid ', 'Žd ')
+            .replace('Zid ', 'Zd ')
+            .replace('Nm ', 'Num ')
+            .replace('Flp ', 'Fp ')
+            .replace('Kron ', 'Pa ')
+            .replace('Is ', 'Iz ') // probably a typo, but seen in the dataset
             .replace(/\(\d+\)/g, '') // remove alternative psalm numberings, e.g. Ž 98(97)
             .replace('+', '.').replace(/(\d+)[abcde]+/g, '$1'); // remove sub-verse letters
 

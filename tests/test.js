@@ -13,7 +13,7 @@ let references = [
 ];
 
 for (reference of references) {
-    console.log(ref.instersectsWith(reference));
+    console.log(ref.intersectsWith(reference));
 }
 
 console.log();
@@ -27,7 +27,7 @@ console.log(
         1 kor 4, 3.9-10
     `)
     // example day readings
-    .instersectsWith(BibleReference.fromEuropean(`
+    .intersectsWith(BibleReference.fromEuropean(`
         z 103, 4-10
         zalm 33, 1-20.22
         1 tim 2-4
@@ -39,4 +39,8 @@ console.log(
 // );
 console.log(
     BibleReference.fromOsis('1Cor.12.31-1Cor.13.13').toCzechStrings()
+);
+
+console.log(
+    BibleReference.fromEuropean('Zd 4').toString()
 );
