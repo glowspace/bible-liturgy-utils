@@ -1,6 +1,6 @@
 {
   "name": "bible-reference",
-  "version": "1.0.4",
+  "version": "1.0.5",
 
   "dependencies": {
     "bible-passage-reference-parser": "^2.0.1"
