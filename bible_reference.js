@@ -62,7 +62,9 @@ class BibleReference
             .replace('Kron ', 'Pa ')
             .replace('Is ', 'Iz ') // probably a typo, but seen in the dataset
             .replace(/\(\d+\)/g, '') // remove alternative psalm numberings, e.g. Ž 98(97)
-            .replace('+', '.').replace(/(\d+)[abcde]+/g, '$1'); // remove sub-verse letters
+            .replace(/\+/g, '.').replace(/(\d+)[abcde]+/g, '$1'); // remove sub-verse letters
+
+        console.log(prepareReference(reference_str));
 
         return new BibleReference(bcv.parse(prepareReference(reference_str)));
     }

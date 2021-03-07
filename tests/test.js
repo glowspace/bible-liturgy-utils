@@ -44,3 +44,7 @@ console.log(
 console.log(
     BibleReference.fromEuropean('Zd 4').toString()
 );
+
+console.log(
+    BibleReference.fromEuropean('Žl 30, 2+4. 5-6. 11+12a+13b').toString()
+)
