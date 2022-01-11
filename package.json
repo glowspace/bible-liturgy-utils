@@ -1,9 +1,9 @@
 {
   "name": "bible-reference",
   "version": "1.0.7",
-
   "dependencies": {
-    "bible-passage-reference-parser": "^2.0.1"
+    "@romcal/calendar.czech-republic": "^3.0.0-alpha.0",
+    "romcal": "3.0.0-alpha.0"
   },
   "repository": {
     "type": "git",

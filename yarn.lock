@@ -2,7 +2,33 @@
 # yarn lockfile v1
 
 
-bible-passage-reference-parser@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/bible-passage-reference-parser/-/bible-passage-reference-parser-2.0.1.tgz#1f2339645a88c4a52bea45ae36b4745be539085b"
-  integrity sha1-HyM5ZFqIxKUr6kWuNrR0W+U5CFs=
+"@babel/runtime@^7.12.0":
+  version "7.16.7"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.7.tgz#03ff99f64106588c9c403c6ecb8c3bafbbdff1fa"
+  integrity sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@romcal/calendar.czech-republic@^3.0.0-alpha.0":
+  version "3.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@romcal/calendar.czech-republic/-/calendar.czech-republic-3.0.0-alpha.0.tgz#fb4a96b280929b1c87b7477492e20917828661ea"
+  integrity sha512-FKfCu+KnCp9FQvPiIOluxO0lqcxFWXUMr7Dod9ktF93nA1JpVoR81rgCVmiwjUFf1Vg3xh6A4fA4ciVOLDsMqQ==
+
+i18next@^20.4.0:
+  version "20.6.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.6.1.tgz#535e5f6e5baeb685c7d25df70db63bf3cc0aa345"
+  integrity sha512-yCMYTMEJ9ihCwEQQ3phLo7I/Pwycf8uAx+sRHwwk5U9Aui/IZYgQRyMqXafQOw5QQ7DM1Z+WyEXWIqSuJHhG2A==
+  dependencies:
+    "@babel/runtime" "^7.12.0"
+
+regenerator-runtime@^0.13.4:
+  version "0.13.9"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
+  integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
+
+romcal@3.0.0-alpha.0:
+  version "3.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/romcal/-/romcal-3.0.0-alpha.0.tgz#33644efa5cdaacbead684fe04f84692295ae5326"
+  integrity sha512-sH7c9Vm/A17JL7KtxL32RZ9Vd1TMccIYF/xFmQto+CZhAYGOv1kodGb0ztPrPz8nCQZDtXxjbZwHnCNN9sPf1Q==
+  dependencies:
+    i18next "^20.4.0"
