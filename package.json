@@ -1,6 +1,6 @@
 {
-  "name": "bible-reference",
-  "version": "1.0.7",
+  "name": "bible-liturgy-utils",
+  "version": "1.0.0",
   "dependencies": {
     "@romcal/calendar.czech-republic": "^3.0.0-alpha.0",
     "romcal": "3.0.0-alpha.0"
@@ -10,10 +10,9 @@
     "url": "https://github.com/proscholy/bible-reference.git"
   },
   "directories": {
-    "tests": "tests"
+    "bible": "bible",
+    "litcal": "litcal"
   },
   "files": [
-    "bible_reference.js",
-    "books_cs.js"
   ]
 }

@@ -53,12 +53,14 @@ function intersectsWith(other_bcv_obj) {
 }
 
 // -- extending -- 
-bcv_parser.prototype.parse_extended = str => ({
-    ...this.parse(str),
-    toCzechStrings,
-    intersectsWith,
-    toString: () => this.osis()
-})
+bcv_parser.prototype.parse_extended = function (str) {
+    return {
+        ...this.parse(str),
+        toCzechStrings,
+        intersectsWith,
+        toString: () => this.osis()
+    }
+}
 
 // -- factory --
 function makeParser(european = true) {
