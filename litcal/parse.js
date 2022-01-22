@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { parseEuropean } = require('../bible/wrapper.js');
+// const { parseEuropean } = require('../bible/wrapper.js');
 
 class DayReading {
     constructor(data) {
