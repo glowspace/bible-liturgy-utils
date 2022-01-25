@@ -1,6 +1,3 @@
-const fs = require('fs');
-// const { parseEuropean } = require('../bible/wrapper.js');
-
 class DayReading {
     constructor(data) {
         this.czechName = data[0]
@@ -18,6 +15,7 @@ class DayReading {
         this.firstReading = getReadingData(2)
         this.psalm = getReadingData(8)
         this.secondReading = getReadingData(14)
+        this.gospel = getReadingData(20)
     }
 
     // references() {
@@ -50,9 +48,9 @@ class DayReading {
 }
 
 class ReadingIndex {
-    constructor(filename = __dirname + '/readings.tsv') {
-        const readings = fs
-            .readFileSync(filename, 'utf8')
+    constructor() {
+        const readings_string = require('./readings.js')
+        const readings = readings_string
             .split('\n')
             .map(line => new DayReading(line.split('\t')))
 

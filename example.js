@@ -15,14 +15,24 @@ function getOsisForDay(readings) {
         .join(',')
 }
 
+
 liturgy.csRomcal.generateCalendar().then(data => {
-    const today = data[todayString()].flatMap(liturgy.getReadings)
+    let lit_events = data['2022-11-10']
+    for (const event of lit_events) {
+        if (event.weekday && !lit_events.map(e => e.key).includes(event.weekday.key)) {
+            lit_events.push(event.weekday)
+        }
+    }
+
+    console.log(lit_events.map(e => e.key))
+
+    const today = lit_events.flatMap(liturgy.getReadings)
     console.log(today)
     console.log(getOsisForDay(today))
 })
 
-liturgy.csRomcal.getOneLiturgicalDay('pentecost_sunday').then( data => {
-    const readings = liturgy.getReadings(data) 
-    console.log(readings)
-    console.log(getOsisForDay(readings))
-})
+// liturgy.csRomcal.getOneLiturgicalDay('ordinary_time_3_wednesday').then( data => {
+//     const readings = liturgy.getReadings(data) 
+//     console.log(readings)
+//     console.log(getOsisForDay(readings))
+// })

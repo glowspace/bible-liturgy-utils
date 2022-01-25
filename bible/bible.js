@@ -54,12 +54,11 @@ function intersectsWith(other_bcv_obj) {
 
 // -- extending -- 
 bcv_parser.prototype.parse_extended = function (str) {
-    return {
-        ...this.parse(str),
-        toCzechStrings,
-        intersectsWith,
-        toString: () => this.osis()
-    }
+    let parsed = this.parse(str)
+    parsed.toCzechStrings = toCzechStrings
+    parsed.intersectsWith = intersectsWith
+    parsed.toString = () => this.osis()
+    return parsed
 }
 
 // -- factory --

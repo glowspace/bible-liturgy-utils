@@ -21,15 +21,21 @@ function getReadings(item) {
     let objs = idx.getReading(item.key)
     if (objs == null)
         return [{
-            key: item.key
+            key: item.key,
+            firstReading: '',
+            psalm: '',
+            secondReading: '',
+            gospel: ''
         }]
 
-    return objs.map(obj => {
-        obj.firstReading = obj.firstReading[cycle]
-        obj.psalm = obj.psalm[cycle]
-        obj.secondReading = obj.secondReading[cycle]
-        return obj
-    })
+    return objs.map(obj => ({
+        czechName: obj.czechName,
+        key: obj.key,
+        firstReading: obj.firstReading[cycle],
+        psalm: obj.psalm[cycle],
+        secondReading: obj.secondReading[cycle],
+        gospel: obj.gospel[cycle]
+    }))
 }
 
 module.exports = {
