@@ -1,6 +1,6 @@
 {
   "name": "bible-liturgy-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "dependencies": {
     "@romcal/calendar.czech-republic": "^3.0.0-alpha.0",
     "romcal": "3.0.0-alpha.0"

@@ -20,8 +20,6 @@ const matchesRange = (e1, e2) => isBetween(e2.start, e1.start, e1.end) || isBetw
 
 // -- functions  for extending the bcv_parser.bcv_obj ---
 function toCzechStrings() {
-    const entities = this.parsed_entities()[0]?.entities || []
-
     const czechBookName = e => books_cs[e.start.b];
     const verseRange = e => {
         if (cv_cmp(e.start, e.end) === 0 ) {
@@ -33,12 +31,12 @@ function toCzechStrings() {
         return e.start.c + ',' + e.start.v + ' - ' + e.end.c + ',' + e.end.v; // Lk 2,3 - 3,10
     }
 
-    return entities.map(e => czechBookName(e) + ' ' + verseRange(e));
+    return this.parsed_entities_obj.map(e => czechBookName(e) + ' ' + verseRange(e));
 }
 
 function intersectsWith(other_bcv_obj) {
-    const entities_1 = this.parsed_entities()[0]?.entities || []
-    const entities_2 = other_bcv_obj.parsed_entities()[0]?.entities || []
+    const entities_1 = this.parsed_entities_obj
+    const entities_2 = other_bcv_obj.parsed_entities_obj
     
     for (const ent_1 of entities_1) {
         if (!endsWithinSameBook(ent_1)) {
@@ -58,6 +56,11 @@ bcv_parser.prototype.parse_extended = function (str) {
     parsed.toCzechStrings = toCzechStrings
     parsed.intersectsWith = intersectsWith
     parsed.toString = () => this.osis()
+    parsed.parsed_entities_obj = []
+    if (parsed.parsed_entities().length > 0) {
+        parsed.parsed_entities_obj = parsed.parsed_entities()[0].entities
+    }
+    
     return parsed
 }
 
