@@ -7609,3 +7609,5 @@ var grammar;
 
 
 }).call(this);
+
+module.exports = this;
