@@ -7608,6 +7608,4 @@ var grammar;
 })(this);
 
 
-}).call(this);
-
-module.exports = this;
+}).call(module.exports);
